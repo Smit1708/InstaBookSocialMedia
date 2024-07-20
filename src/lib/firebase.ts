@@ -7,12 +7,13 @@ import { getFirestore } from "firebase/firestore";
 
 // Your web app's Firebase configuration
 const firebaseConfig = {
-  apiKey: "AIzaSyD__ZnYppGJMu_mhqkbB6WUV9djObaCzfg",
-  authDomain: "instabook-525e4.firebaseapp.com",
-  projectId: "instabook-525e4",
-  storageBucket: "instabook-525e4.appspot.com",
-  messagingSenderId: "472178280982",
-  appId: "1:472178280982:web:a8198afe5a8f556ae10337"
+  apiKey: "AIzaSyABwfYtB2LcYCh7l3fWVXlpEAjjHVeeYeU",
+  authDomain: "social-media-46d65.firebaseapp.com",
+  databaseURL: "https://social-media-46d65-default-rtdb.firebaseio.com",
+  projectId: "social-media-46d65",
+  storageBucket: "social-media-46d65.appspot.com",
+  messagingSenderId: "283607692134",
+  appId: "1:283607692134:web:c0ee27a0788956b6238ea7"
 };
 
 // Initialize Firebase

@@ -1,9 +1,9 @@
 import { Card } from "@nextui-org/card";
 import NewPostForm from "./NewPostForm";
 
-import { collection, getDocs, query } from "firebase/firestore";
-import { useState } from "react";
+import { collection, query, getDocs } from "firebase/firestore";
 import { db } from "../../lib/firebase";
+import { useState } from "react";
 
 interface Post {
   Title: string;
@@ -25,7 +25,7 @@ const Feed = () => {
   };
   setInterval(() => {
     getAllPosts();
-  }, 30000);
+  }, 3000);
 
   return (
     <main className="p-4 pb-24">

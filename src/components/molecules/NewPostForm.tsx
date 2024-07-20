@@ -8,21 +8,23 @@ import {
   ModalHeader,
   useDisclosure,
 } from "@nextui-org/react";
-import { addDoc, collection } from "firebase/firestore";
+import { doc, setDoc } from "firebase/firestore";
 import { getDownloadURL, ref, uploadBytes } from "firebase/storage";
 import { useForm } from "react-hook-form";
 import { auth, db, storage } from "../../lib/firebase";
 
 export default function NewPostForm() {
   const { isOpen, onOpen, onOpenChange } = useDisclosure();
-  const timestamp = Date.now();
-  const randomNum = Math.floor(Math.random() * 1000000);
 
   const { register, handleSubmit } = useForm();
 
   async function onSubmit(values: any) {
-    const storageRef = ref(storage, `posts/${timestamp + randomNum}.jpeg`);
+    const timestamp = new Date().getMilliseconds();
     const file = values.image[0];
+    const fileName = values.image[0].name + timestamp.toString();
+    const storageRef = ref(storage, `posts/${fileName}`);
+    const postRef = ref(storage, `posts/${fileName}`);
+
     await uploadBytes(storageRef, file)
       .then((snapshot) => {
         console.log("Uploaded a blob or file!", snapshot);
@@ -31,12 +33,13 @@ export default function NewPostForm() {
         console.error(error);
       });
 
-    const imgUrl: string = await getDownloadURL(storageRef);
+    const imgUrl: string = await getDownloadURL(postRef);
     console.log(imgUrl);
 
     if (auth.currentUser) {
+      const docId = values.title + timestamp.toString();
       // Add a new document in collection "cities"
-      await addDoc(collection(db, "posts"), {
+      await setDoc(doc(db, "posts", docId), {
         Title: values.title,
         Description: values.description,
         Image: imgUrl,
