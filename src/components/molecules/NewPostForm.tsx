@@ -73,7 +73,6 @@ export default function NewPostForm() {
                     label="Image"
                     accept=".jpeg"
                     placeholder="Upload Your Image"
-                    variant="bordered"
                     {...register("image")}
                   />
                   <Input
@@ -81,7 +80,6 @@ export default function NewPostForm() {
                     type="text"
                     label="Title"
                     placeholder="Write a title..."
-                    variant="bordered"
                     {...register("title")}
                   />
                   <Input
@@ -89,7 +87,6 @@ export default function NewPostForm() {
                     type="text"
                     label="Description"
                     placeholder="Write a description..."
-                    variant="bordered"
                     {...register("description")}
                   />
                   <Button color="primary" type="submit" onPress={onClose}>

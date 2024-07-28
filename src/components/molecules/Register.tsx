@@ -44,7 +44,7 @@ const Register = () => {
         Insta-Book
       </h1>
       <Card
-        className="p-10 mx-5"
+        className="p-10 mx-5 min-w-80 "
         style={{
           backgroundImage: `url(${background})`,
           width: `300px`,
@@ -103,13 +103,14 @@ const Register = () => {
             autoComplete="current-password"
             {...register("confirmPassword")}
           />
+
           <Button type="submit" size="sm" color="secondary">
             Register
           </Button>
         </form>
 
-        <CardFooter>
-          <Link to="/login" className="underline text-blue-600">
+        <CardFooter className="pl-0 py-3">
+          <Link to="/login" className="underline text-blue-600 ">
             Already Register ? Login HERE
           </Link>
         </CardFooter>

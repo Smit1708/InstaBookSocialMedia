@@ -84,7 +84,7 @@ const Login = () => {
             Sign in with Google
           </Button>
         </form>
-        <CardFooter>
+        <CardFooter className="pl-0 py-3">
           <Link to="/signup" className="underline text-purple-600">
             New here ? Register Now
           </Link>
